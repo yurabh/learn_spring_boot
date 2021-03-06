@@ -5,7 +5,6 @@ import com.domain.Man;
 import com.domain.Phone;
 import org.junit.Assert;
 import org.junit.Before;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +28,6 @@ public class ManRepositoryTest {
     @Before
     public void beforeTest() {
         man = new Man();
-        man.setId(0);
         man.setName("oleg");
         man.setAge(20);
         man.setPhone(new Phone(0, "111"));
@@ -38,8 +36,9 @@ public class ManRepositoryTest {
 
     @Test
     public void shouldFindMan() {
-        Assert.assertEquals(man, manRepository.save(man));
-        Assert.assertEquals(this.man, manRepository.findById(1).get());
+        final Man savedMan = manRepository.save(man);
+        final int id = savedMan.getId();
+        Assert.assertEquals(id, manRepository.findById(id).get().getId());
     }
 
     @Test
@@ -51,8 +50,8 @@ public class ManRepositoryTest {
 
     @Test
     public void shouldDeleteMan() {
-        Assert.assertEquals(man, manRepository.save(man));
-        manRepository.deleteById(1);
+        final Man savedMan = manRepository.save(man);
+        manRepository.deleteById(savedMan.getId());
         Assert.assertEquals(0, manRepository.count());
     }
 

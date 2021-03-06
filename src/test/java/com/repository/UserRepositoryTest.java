@@ -12,6 +12,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
+@Sql(scripts = {"classpath:data.sql"},
+        executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
 public class UserRepositoryTest {
 
     @Autowired
@@ -29,8 +31,7 @@ public class UserRepositoryTest {
         user.setActive(true);
     }
 
-    @Sql(scripts = {"classpath:data.sql",
-            "classpath:schema.sql"},
+    @Sql(scripts = {"classpath:schema.sql"},
             executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
     @Test
     public void shouldSaveUser() {
