@@ -9,21 +9,21 @@ pipeline {
 
         stage("build") {
 
-             steps {
+            steps {
                 echo "Building the application ..."
-                sh "mvn clean install"
-             }
+                sh 'mvn clean install'
+            }
         }
 
         stage("test") {
-            when {
+             when {
                  expression {
                      BRANCH_NAME == 'master'
                  }
-            }
+             }
 
              steps {
-                echo "Testing the application ..."
+                echo "Run all Test..."
                  sh "mvn test"
              }
         }
