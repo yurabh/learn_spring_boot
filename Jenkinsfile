@@ -13,6 +13,7 @@ pipeline {
             }
         }
         stage("test") {
+
              when {
                  expression {
                      BRANCH_NAME == 'master'
