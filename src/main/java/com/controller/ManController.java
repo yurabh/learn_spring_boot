@@ -46,7 +46,7 @@ public class ManController {
             @ApiResponse(code = 200, message = "Success OK"),
             @ApiResponse(code = 401, message = "not authorized"),
             @ApiResponse(code = 403, message = "forbidden"),
-            @ApiResponse(code = 404, message = "not found")})
+            @ApiResponse(code = 404, message = "notfound")})
     @GetMapping(value = "/get/{manId}")
     public ResponseEntity<Man> getManById(@PathVariable("manId") final int manId) {
         return new ResponseEntity<>(manService.find(manId), HttpStatus.OK);
@@ -69,7 +69,7 @@ public class ManController {
             @ApiResponse(code = 200, message = "Success OK"),
             @ApiResponse(code = 401, message = "not authorized"),
             @ApiResponse(code = 403, message = "forbidden"),
-            @ApiResponse(code = 404, message = "not found")})
+            @ApiResponse(code = 404, message = "notfound")})
     @GetMapping(value = "/get/all/men")
     public List<Man> getAll() {
         return manService.getAll();
