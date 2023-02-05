@@ -30,7 +30,6 @@ pipeline {
         }
 
         stage("deploy") {
-
              steps {
                 echo "Deploy the application ..."
                 sh "mvn package"
