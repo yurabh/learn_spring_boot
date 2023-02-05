@@ -19,6 +19,7 @@ pipeline {
                      BRANCH_NAME == 'master'
                  }
              }
+
              steps {
                 echo "Run all Test..."
                  sh "mvn test"
