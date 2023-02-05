@@ -33,7 +33,7 @@ public class ManController {
             @ApiResponse(code = 200, message = "Success OK"),
             @ApiResponse(code = 401, message = "not authorized"),
             @ApiResponse(code = 403, message = "forbidden"),
-            @ApiResponse(code = 404, message = "not found")})
+            @ApiResponse(code = 404, message = "notfound")})
     @PostMapping("/save")
     public Man saveAndReturnMan(@RequestBody final Man man) {
         return manService.save(man);
