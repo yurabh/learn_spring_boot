@@ -30,7 +30,7 @@ public class ManController {
             response = Man.class,
             tags = "saveMan")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Success OK"),
+            @ApiResponse(code = 200, message = "SuccessOK"),
             @ApiResponse(code = 401, message = "not authorized"),
             @ApiResponse(code = 403, message = "forbidden"),
             @ApiResponse(code = 404, message = "not found")})
