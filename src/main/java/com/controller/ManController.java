@@ -42,10 +42,10 @@ public class ManController {
             response = Man.class,
             tags = "saveMan")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "SuccessOK"),
+            @ApiResponse(code = 200, message = "Success OK"),
             @ApiResponse(code = 401, message = "not authorized"),
             @ApiResponse(code = 403, message = "forbidden"),
-            @ApiResponse(code = 404, message = "notfound")})
+            @ApiResponse(code = 404, message = "not found")})
     @PostMapping("/save")
     public Man saveAndReturnMan(@RequestBody final Man man) {
         return manService.save(man);
@@ -55,10 +55,10 @@ public class ManController {
             response = Man.class,
             tags = "getManById")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "SuccessOK"),
+            @ApiResponse(code = 200, message = "Success OK"),
             @ApiResponse(code = 401, message = "not authorized"),
             @ApiResponse(code = 403, message = "forbidden"),
-            @ApiResponse(code = 404, message = "notfound")})
+            @ApiResponse(code = 404, message = "not found")})
     @GetMapping(value = "/get/{manId}")
     public ResponseEntity<Man> getManById(@PathVariable("manId") final int manId) {
         return new ResponseEntity<>(manService.find(manId), HttpStatus.OK);
@@ -78,10 +78,10 @@ public class ManController {
 
     @ApiOperation(value = "GetAll Men in the System", tags = "getAllMen")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "SuccessOK"),
+            @ApiResponse(code = 200, message = "Success OK"),
             @ApiResponse(code = 401, message = "not authorized"),
             @ApiResponse(code = 403, message = "forbidden"),
-            @ApiResponse(code = 404, message = "notfound")})
+            @ApiResponse(code = 404, message = "not found")})
     @GetMapping(value = "/get/all/men")
     public List<Man> getAll() {
         return manService.getAll();
